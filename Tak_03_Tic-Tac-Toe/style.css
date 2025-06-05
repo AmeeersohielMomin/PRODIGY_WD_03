@@ -1,0 +1,111 @@
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f8ff;
+    margin: 0;
+    color: #333;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.status {
+    font-size: 1.2em;
+    color: #34495e;
+    margin-bottom: 20px;
+    min-height: 1.5em;
+    font-weight: bold;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 300px;
+    height: 300px;
+    margin: 0 auto 20px auto;
+    border: 2px solid #2c3e50;
+    border-radius: 5px;
+}
+
+.cell {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #bdc3c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    box-sizing: border-box;
+}
+
+.cell:hover:not(.occupied):not(.winning-cell) {
+    background-color: #ecf0f1;
+}
+
+.cell.X {
+    color: #e74c3c;
+}
+
+.cell.O {
+    color: #3498db;
+}
+
+.reset-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reset-button:hover {
+    background-color: #2980b9;
+    transform: translateY(-1px);
+}
+
+@keyframes pulseGlow {
+    0% {
+        background-color: #f1c40f;
+        box-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f;
+        transform: scale(1);
+    }
+    50% {
+        background-color: #f39c12;
+        box-shadow: 0 0 10px #f39c12, 0 0 20px #f39c12;
+        transform: scale(1.05);
+    }
+    100% {
+        background-color: #f1c40f;
+        box-shadow: 0 0 5px #f1c40f, 0 0 10px #f1c40f;
+        transform: scale(1);
+    }
+}
+
+.winning-cell {
+    color: #fff !important;
+    background-color: #f1c40f;
+    animation-name: pulseGlow;
+    animation-duration: 0.8s;
+    animation-iteration-count: 3;
+    animation-timing-function: ease-in-out;
+}
